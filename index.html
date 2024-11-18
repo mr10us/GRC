@@ -23,12 +23,115 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#">About us</a></li>
+            <li>
+              <div class="dropdown">
+                About Us
+                <div class="dropdown__content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <p>Who we are</p>
+                        <span>Our values and mission</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p>Our team</p>
+                        <span>Best specialists </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p>Structure</p>
+                        <span>Departments and contacts</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p>Work with us</p>
+                        <span>Our vacancies</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p>Related organisations</p>
+                        <span>Organisation reports </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <p>Annual reports</p>
+                        <span>Organisation reports </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Contacts</a></li>
           </ul>
         </nav>
+
+        <div class="mobile-menu">
+          <div class="mobile-menu__content container">
+            <nav>
+              <ul>
+                <li>
+                  <div class="mobile-menu__content-dropdown__container">
+                    <p>About Us</p>
+                    <div class="mobile-menu__content-dropdown">
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <p>Who we are</p>
+                            <span>Our values and mission</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <p>Our team</p>
+                            <span>Best specialists </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <p>Structure</p>
+                            <span>Departments and contacts</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <p>Work with us</p>
+                            <span>Our vacancies</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <p>Related organisations</p>
+                            <span>Organisation reports </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <p>Annual reports</p>
+                            <span>Organisation reports </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <button class="menu-btn"></button>
+        <!-- Temporary hidden -->
         <div>
           <div aria-label="search icon">
             <img src="/assets/img/search.svg" alt="search icon" width="15px" height="15px" />
@@ -40,7 +143,8 @@
       </div>
     </header>
     <main>
-      <section class="hero" data-src="/assets/img/hero.png">
+      <section class="hero">
+        <img src="/assets/img/hero.png" alt="hero image" />
         <div class="container">
           <div class="hero__text">
             <h1>Not-for-profit specialising in international humanitarian law</h1>
@@ -65,63 +169,96 @@
 
         <div class="about__circles">
           <div class="circle">
+            <span>Integrity</span>
+          </div>
+          <div class="circle">
+            <span>Innovation</span>
+          </div>
+          <div class="circle main">
             <span>Justice</span>
           </div>
-        </div>
-      </section>
-
-      <section class="latest-insights container">
-        <h2 class="page-divider">Latest Insights</h2>
-
-        <div class="latest-insights__container">
-          <div class="insights">
-            <article class="insight__item">
-              <div class="insight__item-header">
-                <p class="badge">Badge</p>
-                <span>03 January 2023</span>
-              </div>
-              <img src="/assets/img/insight.png" alt="insight post image" />
-              <h3>GRC Experts Call for Pro-War Russian and Belarusian Athletes to be Stripped of Olympic Medals</h3>
-
-              <div class="insight__item-tags">
-                <p class="badge">Badge</p>
-                <p class="badge">Badge</p>
-              </div>
-            </article>
-            <article class="insight__item">
-              <div class="insight__item-header">
-                <p class="badge">Badge</p>
-                <span>03 January 2023</span>
-              </div>
-              <img src="/assets/img/insight.png" alt="insight post image" />
-              <h3>GRC Experts Call for Pro-War Russian and Belarusian Athletes to be Stripped of Olympic Medals</h3>
-
-              <div class="insight__item-tags">
-                <p class="badge">Badge</p>
-                <p class="badge">Badge</p>
-              </div>
-            </article>
+          <div class="circle">
+            <span>Accountability</span>
           </div>
-          <div class="insights__short">
-            <article class="insight__short-item">
-              <span>03 January 2023</span>
-              <h3>Launching your product business: From idea to market success</h3>
-            </article>
-
-            <article class="insight__short-item">
-              <span>03 January 2023</span>
-              <h3>Launching your product business: From idea to market success</h3>
-            </article>
-            <article class="insight__short-item">
-              <span>03 January 2023</span>
-              <h3>Launching your product business: From idea to market success</h3>
-            </article>
+          <div class="circle">
+            <span>Specialism</span>
           </div>
         </div>
       </section>
 
-      <section class="map container">
-        <h2 class="page-divider">Geography of projects</h2>
+      <section class="latest-insights">
+        <div class="container">
+          <h2 class="page-divider">Latest Insights</h2>
+
+          <div class="latest-insights__container">
+            <div class="insights insights__slider">
+              <article class="insight__item">
+                <div class="insight__item-header">
+                  <p class="badge">Badge</p>
+                  <span>03 January 2023</span>
+                </div>
+                <img src="/assets/img/insight.png" alt="insight post image" />
+                <h3>GRC Experts Call for Pro-War Russian and Belarusian Athletes to be Stripped of Olympic Medals</h3>
+
+                <div class="insight__item-tags">
+                  <p class="badge">Badge</p>
+                  <p class="badge">Badge</p>
+                </div>
+              </article>
+              <article class="insight__item">
+                <div class="insight__item-header">
+                  <p class="badge">Badge</p>
+                  <span>03 January 2023</span>
+                </div>
+                <img src="/assets/img/insight.png" alt="insight post image" />
+                <h3>GRC Experts Call for Pro-War Russian and Belarusian Athletes to be Stripped of Olympic Medals</h3>
+
+                <div class="insight__item-tags">
+                  <p class="badge">Badge</p>
+                  <p class="badge">Badge</p>
+                </div>
+              </article>
+            </div>
+            <div class="insights__short">
+              <article class="insight__short-item">
+                <span>03 January 2023</span>
+                <h3>Launching your product business: From idea to market success</h3>
+              </article>
+
+              <article class="insight__short-item">
+                <span>03 January 2023</span>
+                <h3>Launching your product business: From idea to market success</h3>
+              </article>
+              <article class="insight__short-item">
+                <span>03 January 2023</span>
+                <h3>Launching your product business: From idea to market success</h3>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="map">
+        <div class="container">
+          <h2 class="page-divider">Geography of projects</h2>
+          <div class="map-container">
+            <div id="map"></div>
+            <div class="map__info">
+              <div>
+                <p>Projects</p>
+                <span>128</span>
+              </div>
+              <div>
+                <p>Countries</p>
+                <span>43</span>
+              </div>
+              <div>
+                <p>Collaborations</p>
+                <span>207</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="projects">
@@ -129,8 +266,8 @@
           <h2 class="page-divider" aria-label="Our projects with link to view more">
             Our projects
             <a href="#"
-              >View more <img src="/assets/img/arrow-down.svg" alt="arrow image" width="5px" height="10px"
-            /></a>
+              >View more <img src="/assets/img/arrow-down.svg" alt="arrow image" width="5px" height="10px" />
+            </a>
           </h2>
 
           <div class="projects__slider">
@@ -146,7 +283,6 @@
             </div>
             <div class="projects__slider-item">
               <h3>GRC Experts Call for Pro-War Russian and Belarusian Athletes to be Stripped of Olympic Medals</h3>
-
               <div>
                 <p class="badge">Badge</p>
                 <p class="badge">Badge</p>
@@ -196,16 +332,21 @@
             </div>
           </div>
           <div class="projects__slider-nav"></div>
+          <a href="#">View more</a>
         </div>
       </section>
 
       <section class="banner">
         <div class="container">
           <h2>Trusted by</h2>
+        </div>
 
-          <div class="banner__logo-list">
-            <img src="" alt="" />
-          </div>
+        <div class="banner__logo-list logo-scroller">
+          <img src="/assets/img/temp_logos/logo1.png" alt="logo image" />
+          <img src="/assets/img/temp_logos/logo2.png" alt="logo image" />
+          <img src="/assets/img/temp_logos/logo3.png" alt="logo image" />
+          <img src="/assets/img/temp_logos/logo4.png" alt="logo image" />
+          <img src="/assets/img/temp_logos/logo5.png" alt="logo image" />
         </div>
       </section>
 
@@ -314,6 +455,8 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="/assets/js/slick.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="text/javascript" src="/assets/js/main.js"></script>
+    <script type="text/javascript" src="/assets/js/mobileNav.js"></script>
   </body>
 </html>

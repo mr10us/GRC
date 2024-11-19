@@ -48,7 +48,8 @@
   top: 0;
   left: 0;
 
-  display: block;
+  display: grid;
+  grid-auto-flow: column;
   margin-left: auto;
   margin-right: auto;
 }
@@ -129,4 +130,8 @@
 .slick-arrow.slick-prev:before {
   background-image: url("/assets/img/arrow-right.svg");
   transform: rotate(180deg);
+}
+
+.slick-arrow.slick-disabled {
+  opacity: 0.5;
 }

@@ -16,7 +16,6 @@ window.addEventListener("load", function () {
       menu.classList.toggle("active");
       header.classList.toggle("active");
 
-      html.style.overflowY === "hidden" ? (html.style.overflowY = null) : html.style.overflowY = "hidden";
       body.style.overflowY === "hidden" ? (body.style.overflowY = null) : body.style.overflowY = "hidden";
     }
     if (!target.closest(".mobile-menu") && !isBurgerClicked) {
@@ -24,7 +23,6 @@ window.addEventListener("load", function () {
       menu.classList.remove("active");
       header.classList.remove("active");
 
-      html.style.overflowY = null;
       body.style.overflowY = null;
     }
   });
@@ -43,9 +41,9 @@ window.addEventListener("load", function () {
     const scrollTop = this.pageYOffset;
 
     if (scrollTop > 0) {
-      header.classList.add("active");
+      header.classList.add("darken");
     } else {
-      header.classList.remove("active");
+      header.classList.remove("darken");
     }
   });
 });

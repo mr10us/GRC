@@ -33,6 +33,8 @@ header {
   color: var(--text-link-secondary-inverted);
   font-size: var(--text-sm);
 
+  box-shadow: var(--shadow);
+
   transition: all 0.3s ease;
 }
 header > .container {
@@ -48,11 +50,16 @@ header > .container {
 header.active {
   background-color: var(--header-active-color);
 }
-header.active > .container > nav {
+header.darken {
+  background-color: var(--header-active-color);
+}
+header.active > .container > nav,
+header.darken > .container > nav {
   color: var(--text-heading-secondary);
 }
 
-header.active .logo {
+header.active .logo,
+header.darken .logo {
   filter: invert(1);
   transition: filter 0.3s ease;
 }
@@ -110,7 +117,7 @@ section.hero {
   position: relative;
   z-index: 9;
   padding: 0;
-  min-height: 800px;
+  min-height: 600px;
 }
 section.hero > *:not(div) {
   object-fit: cover;
@@ -215,6 +222,7 @@ section.about-us .about__circles > div {
   border-color: #d2d2d2;
   height: 290px;
   aspect-ratio: 1/1;
+  opacity: 0;
   border-radius: 50%;
 }
 section.about-us .about__circles > div.main {
@@ -222,9 +230,35 @@ section.about-us .about__circles > div.main {
   position: relative;
   background: radial-gradient(50% 50% at 50% 50%, #d5feff 0%, #fcf6ec 100%);
 }
+section.about-us .about__circles > div:nth-child(2),
+section.about-us .about__circles > div:nth-child(4) {
+  animation-delay: 0.25s;
+}
+section.about-us .about__circles > div:first-child,
+section.about-us .about__circles > div:last-child {
+  animation-delay: 0.5s;
+}
+
+section.about-us .about__circles > div.animated {
+  animation-name: popup;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
 section.about-us .about__circles > div > span {
   text-align: center;
   font-size: var(--text-xl);
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.9) translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -366,7 +400,7 @@ section.latest-insights .insights__short > article > h3 {
     left: 0;
     transform: translateX(-100%);
     width: 50vw;
-    z-index: 100;
+    z-index: 1;
   }
   section.latest-insights .insights article {
     gap: 1.5rem;
@@ -533,7 +567,7 @@ section.projects .projects__slider::before {
   left: 0;
   transform: translateX(-100%);
   width: 50vw;
-  z-index: 100;
+  z-index: 1;
 }
 
 section.projects .projects__slider .slick-list {

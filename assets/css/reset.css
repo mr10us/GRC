@@ -94,6 +94,8 @@ ul {
 
   --font-lora: "Lora", serif;
   --font-inter: "Inter", sans-serif;
+
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -206,7 +208,8 @@ main > section .page-divider > a > img {
   height: 100%;
 }
 
-header.active .menu-btn {
+header.active .menu-btn,
+header.darken .menu-btn {
   --btn-bg-color: transparent;
   --btn-text-color: var(--links-color-scrolled);
 }
@@ -268,11 +271,8 @@ header.active .mobile-menu {
 
     overflow: hidden;
     background-color: var(--content-bg-color);
-  }
-
-  .mobile-menu .mobile-menu__content > nav {
     height: auto;
-    max-height: 100vh;
+    max-height: 100lvh;
     overflow-y: auto;
   }
   .mobile-menu .mobile-menu__content > nav > ul {
@@ -358,7 +358,6 @@ header.active .mobile-menu {
     .mobile-menu__content-dropdown
     > ul {
     opacity: 1;
-    padding: 10px;
     margin-top: 10px;
     color: var(--menu-text-color);
   }
@@ -433,7 +432,7 @@ header.active .mobile-menu {
   display: block;
   opacity: 0;
   gap: 4px;
-  top: 100%;
+  top: calc(100% + 1.5rem);
   left: -1rem;
   pointer-events: none;
   position: absolute;
@@ -459,7 +458,8 @@ header.active .mobile-menu {
 
 .dropdown .dropdown__content ul {
   display: grid;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  gap: 28px;
 }
 .dropdown .dropdown__content ul li {
   display: grid;
@@ -502,7 +502,7 @@ header.active .mobile-menu {
   gap: 0.5rem;
   padding: 12px;
   background-color: #eeebe5;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
   border-radius: 8px;
   position: absolute;
 }

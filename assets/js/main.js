@@ -3,6 +3,7 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
+    infinite: false,
     appendArrows: ".projects__slider-nav",
     responsive: [
       {
@@ -15,6 +16,7 @@ $(document).ready(function () {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
+          infinite: true
         },
       },
     ],
@@ -24,6 +26,7 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 2,
     slidesToScroll: 1,
+    infinite: false,
     appendArrows: ".reviews__slider-nav",
     responsive: [
       {
@@ -37,7 +40,7 @@ $(document).ready(function () {
 
   $(".logo-scroller").slick({
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
@@ -208,10 +211,8 @@ window.addEventListener("load", function () {
         d3.select(this).attr("fill", "var(--violet)"); // Исходный цвет
       })
       .on("click", function (event, d) {
-        // Удаляем существующий тултип, если есть
         d3.select(".tooltip").remove();
 
-        // Создаём новый тултип
         const tooltip = d3
           .select("body")
           .append("div")
@@ -221,23 +222,45 @@ window.addEventListener("load", function () {
             <a href="${d.link}" target="_blank">View projects</a>
           `);
 
-        // Позиционируем тултип относительно курсора
         tooltip
           .style("left", `${event.pageX + 10}px`)
           .style("top", `${event.pageY - 28}px`);
 
-        // Удаляем тултип при следующем клике где угодно
         d3.select("body").on("click", function () {
           d3.select(".tooltip").remove();
         });
 
-        // Останавливаем всплытие события, чтобы тултип не исчез сразу
         event.stopPropagation();
       });
 
-    // Удаляем тултип при клике вне карты
     d3.select("body").on("click", function () {
       d3.select(".tooltip").remove();
     });
+  });
+
+  // Animate circles
+
+  const circles = document.querySelectorAll(".about__circles .circle");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const observer = new IntersectionObserver(animateCircle, options);
+
+  function animateCircle(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animated");
+      // } else {
+      //   entry.target.classList.remove("animated");
+      }
+    });
+  }
+
+  circles.forEach((circle) => {
+    observer.observe(circle);
   });
 });

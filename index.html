@@ -144,10 +144,24 @@
     </header>
     <main>
       <section class="hero">
-        <img src="/assets/img/hero.png" alt="hero image" />
+        <video
+          id="responsive-video"
+          data-desktop="/assets/img/hero__desktop.mp4"
+          data-mobile="/assets/img/hero__mobile.mp4"
+          poster="/assets/img/fallback.png"
+          autoplay
+          muted
+          loop
+          playsinline
+          onerror="document.querySelector('.fallback-image').style.display='block';"
+        >
+          Your browser does not support the video tag.
+        </video>
+
+        <img src="/assets/img/fallback.png" alt="Video placeholder" class="fallback-image" style="display: none" />
         <div class="container">
           <div class="hero__text">
-            <h1>Not-for-profit specialising in international humanitarian law</h1>
+            <h1>Not-for-profit specialising in international humanitarian, criminal and human rights law </h1>
           </div>
         </div>
       </section>
@@ -158,13 +172,19 @@
 
         <img src="/assets/img/about-us.png" alt="about us image" />
 
-        <span>Some text about organisation.</span>
+        <span
+          >Global Rights Compliance (GRC) is an international law Foundation dedicated to promoting accountability
+          through the application of international humanitarian law, international criminal law, and human rights law.
+        </span>
 
         <p>
-          Global Rights Compliance is a Foundation made up of international lawyers and development experts with one
-          mission: achieving justice through the innovative application of international law. We specialise in
-          on-the-ground international humanitarian law and human rights issues in conflict-affected and high-risk areas
-          around the world, working to identify, prevent and mitigate adverse human rights impacts.
+          Operating in conflict-affected and high-risk regions worldwide, GRC combines legal expertise with practical
+          experience to design responses to atrocity crimes and human rights abuses. Our team are experts at
+          interpreting international law, prosecutorial and investigative analysis, and capacity building, with a focus
+          on delivering mobile support to national and international mechanisms and civil society to promote justice.
+          GRC has been instrumental in supporting high-profile national and international litigation and transitional
+          justice initiatives globally, collaborating with governments, international institutions, and civil society to
+          uphold the rule of law and seek redress for affected communities.
         </p>
 
         <div class="about__circles">

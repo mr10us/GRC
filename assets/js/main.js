@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    const videoElement = document.getElementById("responsive-video");
+    const isMobile = window.matchMedia("(max-width: 425px)").matches;
+  
+    const videoSrc = isMobile
+      ? videoElement.dataset.mobile
+      : videoElement.dataset.desktop;
+  
+    const sourceElement = document.createElement("source");
+    sourceElement.src = videoSrc;
+    sourceElement.type = "video/mp4";
+    videoElement.appendChild(sourceElement);
+  
+    videoElement.load();
+  
+
   $(".projects__slider").slick({
     speed: 300,
     slidesToShow: 3,

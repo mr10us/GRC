@@ -33,8 +33,6 @@ header {
   color: var(--text-link-secondary-inverted);
   font-size: var(--text-sm);
 
-  box-shadow: var(--shadow);
-
   transition: all 0.3s ease;
 }
 header > .container {
@@ -49,9 +47,11 @@ header > .container {
 
 header.active {
   background-color: var(--header-active-color);
+  box-shadow: var(--shadow);
 }
 header.darken {
   background-color: var(--header-active-color);
+  box-shadow: var(--shadow);
 }
 header.active > .container > nav,
 header.darken > .container > nav {
@@ -119,10 +119,12 @@ section.hero {
   padding: 0;
   min-height: 600px;
 }
-section.hero > *:not(div) {
+section.hero > video,
+section.hero > img {
   object-fit: cover;
   object-position: 60% 0;
   height: 100%;
+  width: 100%;
 }
 section.hero > * {
   grid-area: 1/1;
@@ -197,6 +199,7 @@ section.about-us span {
   font-weight: 400;
   font-size: var(--text-3xl);
   line-height: 1.2;
+  width: 50%;
 }
 section.about-us p {
   margin-left: auto;
@@ -267,9 +270,8 @@ section.about-us .about__circles > div > span {
   }
 }
 @media screen and (max-width: 1024px) {
-  section.about-us h3 {
-    width: 100%;
-  }
+  section.about-us h3,
+  section.about-us span,
   section.about-us p {
     width: 100%;
   }

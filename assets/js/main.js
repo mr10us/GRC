@@ -234,8 +234,6 @@ window.addEventListener("load", function () {
       countryCenters[countryName] = centroid;
     });
 
-    console.log(countryCenters);
-
     // Отображение пинов
     svg
       .selectAll(".pin")

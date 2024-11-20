@@ -464,6 +464,26 @@ section.map .map-container > .map__info span {
 
 section.map #map {
   overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+section.map #map::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+section.map #map::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+section.map #map::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+section.map #map::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 section.map .container .map-pin {

@@ -463,9 +463,10 @@ section.map .map-container > .map__info span {
 }
 
 section.map #map {
-  overflow-x: scroll;
+  overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  scrollbar-gutter: stable;
 }
 
 section.map #map::-webkit-scrollbar {

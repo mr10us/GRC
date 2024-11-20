@@ -16,7 +16,7 @@ $(document).ready(function () {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          infinite: true
+          infinite: true,
         },
       },
     ],
@@ -148,7 +148,8 @@ window.addEventListener("load", function () {
     { name: "Yemen", coordinates: [45.0373, 15.5527], link: "/#/" },
     {
       name: "Democratic People Republic Korea",
-      coordinates: [127.5101, 40.339], link: "/#/",
+      coordinates: [127.5101, 40.339],
+      link: "/#/",
     },
     { name: "North Korea", coordinates: [127.5101, 40.3399], link: "/#/" },
     { name: "Damascus, Syria", coordinates: [36.2913, 33.5138], link: "/#/" },
@@ -254,8 +255,8 @@ window.addEventListener("load", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("animated");
-      // } else {
-      //   entry.target.classList.remove("animated");
+        // } else {
+        //   entry.target.classList.remove("animated");
       }
     });
   }
@@ -263,4 +264,25 @@ window.addEventListener("load", function () {
   circles.forEach((circle) => {
     observer.observe(circle);
   });
+
+  // Map auto scroll on mobile
+
+  const map = document.querySelector("#map");
+
+  const mapObserver = new IntersectionObserver(function (entry) {
+    if (entry[0].isIntersecting) {
+      const mapLength = map.scrollWidth;
+      map.scrollTo({
+        left: mapLength / 2.5,
+        behavior: "smooth",
+      });
+    } else {
+      map.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, options);
+
+  mapObserver.observe(map);
 });

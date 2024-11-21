@@ -17,34 +17,29 @@ window.addEventListener("load", function () {
     }
   });
 
-  (function () {
-    const header = document.querySelector("header");
+  const header = document.querySelector("header");
 
-    window.addEventListener("click", ({ target }) => {
-      const scrollTop = window.pageYOffset > 0;
+  window.addEventListener("click", ({ target }) => {
+    const scrollTop = window.scrollY > 0;
 
-      if (
-        target.classList.contains("dropdown") ||
-        target.parentNode.classList.contains("dropdown")
-      ) {
-        const dropdown = target.closest(".dropdown");
+    if (
+      target.classList.contains("dropdown") ||
+      target.parentNode.classList.contains("dropdown")
+    ) {
+      const dropdown = target.closest(".dropdown");
 
-        dropdown.classList.toggle("active");
+      dropdown.classList.toggle("active");
 
-        if (!scrollTop && header.classList.contains("active")) {
-          header.classList.remove("active");
-        } else {
-          header.classList.add("active");
-        }
-      } else {
-        document.querySelectorAll(".dropdown").forEach((dropdown) => {
-          dropdown.classList.remove("active");
-        });
-
-        if (scrollTop && !target.closest(".mobile-menu")) {
-          header.classList.remove("active");
-        }
+      if (dropdown.classList.contains("active")) {
+        header.classList.add("darken");
       }
-    });
-  })();
+      if (!dropdown.classList.contains("active") && !scrollTop)
+        header.classList.remove("darken");
+    } else {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        dropdown.classList.remove("active");
+        header.classList.add("darken");
+      });
+    }
+  });
 });

@@ -754,6 +754,7 @@ section.reviews .reviews__slider-item > div > div {
   align-self: start;
   gap: var(--gap);
   flex-wrap: wrap;
+  line-height: 1;
   color: var(--color-desc);
 }
 section.reviews .reviews__slider-item > div > div > p {

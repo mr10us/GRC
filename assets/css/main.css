@@ -675,13 +675,13 @@ section.banner h2 {
   font-weight: 400;
 }
 
-.logo-scroller {
+.logo__slider {
   max-width: 100%;
   overflow: hidden;
   padding-block: 2rem;
 }
 
-.logo-scroller img {
+.logo__slider img {
   display: block;
   height: auto;
   margin: 0 auto;

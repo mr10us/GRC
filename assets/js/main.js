@@ -12,9 +12,46 @@ document.addEventListener("DOMContentLoaded", function () {
   videoElement.appendChild(sourceElement);
 
   videoElement.load();
+
+  function loadScript(src, callback) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = callback;
+      document.body.appendChild(script);
+      resolve();
+    });
+  }
+
+  const sliderSections = Array.from(
+    document.querySelectorAll('[class*="__slider"]')
+  );
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          loadScript("//code.jquery.com/jquery-1.11.0.min.js", null).then(
+            () => {
+              loadScript(
+                "//code.jquery.com/jquery-migrate-1.2.1.min.js",
+                null
+              ).then(loadScript("/assets/js/slick.min.js", initializeSliders));
+            }
+          );
+        }
+      });
+    },
+    { root: null, rootMargin: "400px", threshold: 0.1 }
+  );
+
+  sliderSections.forEach((section) => {
+    observer.observe(section);
+  });
 });
 
-$(document).ready(function () {
+function initializeSliders() {
   $(".projects__slider").slick({
     speed: 300,
     slidesToShow: 3,
@@ -54,7 +91,7 @@ $(document).ready(function () {
     ],
   });
 
-  $(".logo-scroller").slick({
+  $(".logo__slider").slick({
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -96,7 +133,9 @@ $(document).ready(function () {
       $(".insights__slider").slick("unslick");
     }
   }
+}
 
+document.addEventListener("DOMContentLoaded", function () {
   // Animate circles
 
   const circles = document.querySelectorAll(".about__circles .circle");

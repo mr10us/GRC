@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
   const videoElement = document.getElementById("responsive-video");
   const isMobile = window.matchMedia("(max-width: 425px)").matches;
 
@@ -12,7 +12,9 @@ $(document).ready(function () {
   videoElement.appendChild(sourceElement);
 
   videoElement.load();
+});
 
+$(document).ready(function () {
   $(".projects__slider").slick({
     speed: 300,
     slidesToShow: 3,

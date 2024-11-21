@@ -1,6 +1,12 @@
-window.addEventListener("load", (function () {
-  // MAP
+function loadScript(src, callback) {
+  const script = document.createElement("script");
+  script.src = src;
+  script.onload = callback;
+  document.body.appendChild(script);
+}
+// MAP
 
+function initializeMap() {
   const root = document.documentElement;
   const violetColor = getComputedStyle(root)
     .getPropertyValue("--violet")
@@ -154,4 +160,21 @@ window.addEventListener("load", (function () {
       d3.select(".tooltip").remove();
     });
   });
-}));
+}
+
+// Наблюдение за секцией карты
+const mapSection = document.querySelector("#map-section");
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        loadScript("https://d3js.org/d3.v7.min.js", initializeMap);
+      }
+    });
+  },
+  { root: null, rootMargin: "400px", threshold: 0.1 }
+);
+
+observer.observe(mapSection);

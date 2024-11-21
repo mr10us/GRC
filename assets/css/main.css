@@ -744,12 +744,14 @@ section.reviews .reviews__slider-item > div > p {
   font-weight: 600;
   font-size: var(--text-sm);
   line-height: 1.5;
+  align-self: end;
   color: var(--color-name);
 }
 section.reviews .reviews__slider-item > div > div {
   --gap: 8px;
   display: flex;
   align-items: center;
+  align-self: start;
   gap: var(--gap);
   flex-wrap: wrap;
   color: var(--color-desc);

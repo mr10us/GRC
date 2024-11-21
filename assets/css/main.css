@@ -743,7 +743,7 @@ section.reviews .reviews__slider-item > div > p {
   font-family: var(--font-inter);
   font-weight: 600;
   font-size: var(--text-sm);
-  line-height: 1.5;
+  line-height: 1;
   align-self: end;
   color: var(--color-name);
 }

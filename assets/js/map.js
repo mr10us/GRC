@@ -163,7 +163,7 @@ function initializeMap() {
 }
 
 // Наблюдение за секцией карты
-const mapSection = document.querySelector("#map-section");
+const mapSection = document.querySelector("section.map");
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
@@ -178,3 +178,24 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(mapSection);
+
+// Map auto scroll on mobile
+
+const map = document.querySelector("#map");
+
+const mapObserver = new IntersectionObserver(function (entry) {
+  if (entry[0].isIntersecting) {
+    const mapLength = map.scrollWidth;
+    map.scrollTo({
+      left: mapLength / 2.5,
+      behavior: "smooth",
+    });
+  } else {
+    map.scrollTo({
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+}, options);
+
+mapObserver.observe(map);

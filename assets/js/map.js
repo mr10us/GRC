@@ -1,5 +1,3 @@
-const controller = new AbortController();
-
 window.addEventListener("load", (function () {
   // MAP
 
@@ -156,6 +154,4 @@ window.addEventListener("load", (function () {
       d3.select(".tooltip").remove();
     });
   });
-}), { signal: controller.signal });
-
-controller.abort();
+}));

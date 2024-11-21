@@ -155,12 +155,12 @@ section.hero .hero__text {
   color: var(--text-heading-inverted);
   font-size: var(--text-4xl);
   font-family: var(--font-lora);
-  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -2%;
 }
 section.hero .hero__text > h1 {
   font-size: inherit;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1280px) {

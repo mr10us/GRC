@@ -183,19 +183,26 @@ observer.observe(mapSection);
 
 const map = document.querySelector("#map");
 
-const mapObserver = new IntersectionObserver(function (entry) {
-  if (entry[0].isIntersecting) {
-    const mapLength = map.scrollWidth;
-    map.scrollTo({
-      left: mapLength / 2.5,
-      behavior: "smooth",
-    });
-  } else {
-    map.scrollTo({
-      left: 0,
-      behavior: "smooth",
-    });
+const mapObserver = new IntersectionObserver(
+  function (entry) {
+    if (entry[0].isIntersecting) {
+      const mapLength = map.scrollWidth;
+      map.scrollTo({
+        left: mapLength / 2.5,
+        behavior: "smooth",
+      });
+    } else {
+      map.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  },
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
   }
-}, options);
+);
 
 mapObserver.observe(map);

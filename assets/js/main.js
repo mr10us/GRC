@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   videoElement.load();
 
-  function loadScript(src, callback) {
-    return new Promise((resolve) => {
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
       const script = document.createElement("script");
       script.src = src;
-      script.onload = callback;
+      script.onload = resolve;
+      script.onerror = reject;
       document.body.appendChild(script);
-      resolve();
     });
   }
 
@@ -32,14 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           observer.disconnect();
-          loadScript("//code.jquery.com/jquery-1.11.0.min.js", null).then(
-            () => {
-              loadScript(
-                "//code.jquery.com/jquery-migrate-1.2.1.min.js",
-                null
-              ).then(loadScript("/assets/js/slick.min.js", initializeSliders));
-            }
-          );
+
+          // Загружаем jQuery и slick.js в правильном порядке
+          loadScript("//code.jquery.com/jquery-1.11.0.min.js")
+            .then(() => loadScript("//code.jquery.com/jquery-migrate-1.2.1.min.js"))
+            .then(() => loadScript("/assets/js/slick.min.js"))
+            .then(initializeSliders)
+            .catch((error) => console.error("Ошибка загрузки скриптов:", error));
         }
       });
     },
@@ -91,33 +90,6 @@ function initializeSliders() {
     ],
   });
 
-  $(".logo__slider").slick({
-    infinite: true,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0,
-    speed: 2000,
-    cssEase: "linear",
-    arrows: false,
-    pauseOnHover: true,
-    pauseOnFocus: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  });
-
   if (window.matchMedia("(max-width: 640px)").matches) {
     if (!$(".insights__slider").hasClass("slick-initialized")) {
       $(".insights__slider").slick({
@@ -134,6 +106,7 @@ function initializeSliders() {
     }
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Animate circles

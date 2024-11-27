@@ -675,16 +675,35 @@ section.banner h2 {
   font-weight: 400;
 }
 
-.logo__slider {
-  max-width: 100%;
+.banner__logo-container {
+  display: inline-block;
+  width: 100%;
+  padding-top: 48px;
   overflow: hidden;
-  padding-block: 2rem;
+  white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent 0%, var(--bg-badge) 10%, var(--bg-badge) 90%, transparent 100%);
 }
 
-.logo__slider img {
-  display: block;
+.banner__logo-list {
+  display: inline-flex;
+  width: max-content;
+  animation: slide 20s linear infinite;
+}
+
+.banner__logo-list img {
+  width: 100%;
   height: auto;
-  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* ––––––– REVIEWS ––––––– */

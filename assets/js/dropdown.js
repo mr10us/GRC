@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
 
     if (
       target.classList.contains("dropdown") ||
-      target.parentNode.classList.contains("dropdown")
+      target.parentNode.classList?.contains("dropdown")
     ) {
       const dropdown = target.closest(".dropdown");
 

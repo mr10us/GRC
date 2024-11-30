@@ -1,0 +1,121 @@
+/* ––––––– HERO ––––––– */
+
+section.hero {
+  padding-top: calc(var(--section-padding) + var(--header-height));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 40px;
+}
+
+section.hero > .header-bold {
+  grid-column: span 2;
+}
+
+section.hero > h1 {
+  font-family: var(--font-lora);
+  font-size: var(--text-3xl);
+  line-height: 1.2;
+  letter-spacing: -2%;
+  color: var(--text-heading-primary);
+  font-weight: 400;
+}
+
+section.hero > p {
+  font-size: var(--text-md);
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+@media screen and (max-width: 768px) {
+  section.hero {
+    grid-template-columns: 1fr;
+  }
+  section.hero > .header-bold {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* ––––––– VACANCIES ––––––– */
+
+section.vacancies {
+  padding-top: 0;
+}
+
+section.vacancies .vacancies__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+section.vacancies .vacancies__list-item {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e9eaeb;
+  border-radius: 1rem;
+}
+
+section.vacancies .vacancies__list-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+section.vacancies .vacancies__list-item__header h3 {
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: 1.5;
+}
+section.vacancies .vacancies__list-item__header span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 2px 0.5rem 2px 3px;
+  border-radius: 1rem;
+  background-color: var(--bg-badge);
+
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-heading-secondary);
+}
+
+section.vacancies .vacancies__list-item__content p {
+  font-weight: 400;
+  font-size: var(--test-sm);
+  line-height: 1.5;
+
+  color: var(--text-heading-secondary);
+}
+
+section.vacancies .vacancies__list-item__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+section.vacancies .vacancies__list-item__footer span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+  section.vacancies .vacancies__list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 640px) {
+}
+@media screen and (max-width: 425px) {
+}

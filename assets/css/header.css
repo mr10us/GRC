@@ -1,0 +1,109 @@
+/* ––––––– HEADER ––––––– */
+
+header {
+  --links-color-scrolled: var(--text-heading-secondary);
+  --header-active-color: var(--bg-header);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  background-color: var(--bg-header);
+
+  width: 100%;
+  height: var(--header-height);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  color: var(--text-heading-secondary);
+  font-size: var(--text-sm);
+
+  transition: all 0.3s ease;
+}
+header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+
+  padding-block: 1rem;
+}
+
+header.transparent {
+  background-color: transparent;
+  color: var(--text-link-secondary-inverted);
+}
+
+header.active {
+  background-color: var(--header-active-color);
+  box-shadow: var(--shadow);
+}
+header.darken {
+  background-color: var(--header-active-color);
+  box-shadow: var(--shadow);
+}
+header.active > .container > nav,
+header.darken > .container > nav {
+  color: var(--text-heading-secondary);
+}
+
+header.transparent .logo {
+  filter: none;
+}
+header.darken .logo,
+header.active .logo,
+header:not(.transparent) .logo {
+  filter: invert(1) !important;
+  transition: filter 0.3s ease;
+}
+
+/* temporary */
+header > .container > nav {
+  margin: 0 auto;
+}
+
+header > .container > nav > ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  list-style-type: none;
+}
+/* temporary */
+header .container > div:last-of-type {
+  display: none !important;
+}
+
+header > .container > div:last-of-type {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+header div .languages > a {
+  display: flex;
+  gap: 8px;
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  header > .container > nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+}
+
+@media screen and (max-width: 425px) {
+}

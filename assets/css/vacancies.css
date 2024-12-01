@@ -99,6 +99,7 @@ section.vacancies .vacancies__list-item__footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  grid-row-end: none;
   gap: 0.5rem;
 }
 section.vacancies .vacancies__list-item__footer span {
